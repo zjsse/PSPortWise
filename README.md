@@ -27,6 +27,7 @@ Cmdlets
 When you are connected you can explore the different cmdlets available. Try Get-Help [cmdlet] to get more information about how to use each cmdlet in the module.
 
 **Cmdlets and how they map to the Web Services:**
+
 Cmdlet | Web Service method (User Account)
 --- | ---
 Get-PWAccount | getAccount
