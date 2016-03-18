@@ -57,7 +57,7 @@ New-PWWebProperties | (n/a)
 Examples
 -------------
 
-Get an account from the user store
+Get an account from the user store.
 ```
 PS> Get-PWAccount john@example.com
 
@@ -79,3 +79,26 @@ ValidFrom            : 2015-01-01 00:00:00
 ValidTo              :
 ```
 
+Add a new linked account to the store with PortWise Password and Invisible Token enabled.
+```
+$pass = New-PWPasswordProperties -UseDirectoryPassword $true
+$inv = New-PWInvisibleTokenProperties -UseDirectoryPassword $true
+$ma = New-PWMethodAccess -MaxRetries 15 -PasswordProperties $pass -InvisibleTokenProperties $inv
+New-PWAccount -UserName john@example.com -DisplayName 'John D.' -MethodAccess $ma -Linked
+```
+
+Adding a new authentication method to an existing account. If you want to overwrite all existing methods, you don't have to get the account first. Instead you create a new MethodAccess object and pass it to Set-PWAccount.
+```
+$a = Get-PWAccount john@example.com
+$pass = New-PWPasswordProperties -UseDirectoryPassword $true
+$a.MethodAccess.passwordProps = $pass
+$a | Set-PWAccount
+```
+
+Get all accounts from the user store. Unfortunately wildcard search is not supported by XPI so we have to get all the users from the directory instead. This example assumes the directory is Active Directory.
+```
+Import-Module ActiveDirectory
+# PortWise stores user name in the Locality-Name attribute (LDAP Display Name is lower case L).
+$adobjects = Get-ADObject -LDAPFilter '(l=*)' -SearchBase 'OU=accounts,OU=PortWise,DC=example,DC=com' -Property l
+$pwaccounts = $adobjects | Foreach-Object -Process {Get-PWAccount -Identity $_.l} 
+```
