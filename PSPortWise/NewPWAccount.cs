@@ -50,16 +50,13 @@ namespace PSPortWise
         {
             PWAccount pwAccount = new PWAccount();
             pwAccount.UserName = UserName;
+            pwAccount.DisplayName = DisplayName;
             // Set defaults
             pwAccount.NotificationMappings = new MapItem[0];
             pwAccount.GlobalAccess = new GlobalAccess();
             pwAccount.GlobalAccess.maxRetries = 10;
             pwAccount.Enabled = true;
             pwAccount.ValidFrom = DateTime.Today;
-            if (MyInvocation.BoundParameters.ContainsKey("DisplayName"))
-            {
-                pwAccount.DisplayName = DisplayName;
-            }
             if (MyInvocation.BoundParameters.ContainsKey("EmailAddress"))
             {
                 pwAccount.EmailAddress = EmailAddress;
