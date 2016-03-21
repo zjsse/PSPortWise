@@ -14,7 +14,7 @@ Prerequisites
 
 Install module
 ---
-The easiest way to install the module is to put the files the Documents folder under WindowsPowerShell\Modules\PSPortWise. This will make the module available only to you. Read here https://msdn.microsoft.com/en-us/library/dd878350%28v=vs.85%29.aspx for more information on how to install PowerShell modules.
+The easiest way to install the module is to put the files (PSPortWise.dll and PSPortWise.dll-Help.xml) in the Documents folder under WindowsPowerShell\Modules\PSPortWise. This will make the module available only to you. Read here https://msdn.microsoft.com/en-us/library/dd878350%28v=vs.85%29.aspx for more information on how to install PowerShell modules for all users.
 
 Connect
 ---
