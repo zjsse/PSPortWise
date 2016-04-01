@@ -6,28 +6,28 @@ namespace PSPortWise
     [Cmdlet(VerbsCommon.New, "PWMethodAccess")]
     public class NewPWMethodAccess : PSCmdlet
     {
-        [Parameter()]
+        [Parameter]
         public int MaxRetries = 10;
-        [Parameter()]
+        [Parameter]
         public string RadiusFramedIP;
-        [Parameter()]
+        [Parameter]
         public string RadiusGroup;
-        [Parameter()]
+        [Parameter]
         public ChallengeProperties ChallengeProperties;
-        [Parameter()]
+        [Parameter]
         public InvisibleTokenProperties InvisibleTokenProperties;
-        [Parameter()]
+        [Parameter]
         public MobileTextProperties MobileTextProperties;
-        [Parameter()]
+        [Parameter]
         public PasswordProperties PasswordProperties;
-        [Parameter()]
+        [Parameter]
         public SynchronizedProperties SynchronizedProperties;
-        [Parameter()]
+        [Parameter]
         public WebProperties WebProperties;
 
         protected override void ProcessRecord()
         {
-            WriteObject(new MethodAccess()
+            WriteObject(new MethodAccess
             {
                 maxRetries = MaxRetries,
                 radiusFramedIP = RadiusFramedIP,

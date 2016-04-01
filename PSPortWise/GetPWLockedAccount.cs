@@ -7,7 +7,7 @@ namespace PSPortWise
     [Cmdlet(VerbsCommon.Get, "PWLockedAccount")]
     public class GetPWLockedAccount : PWConnectedCmdlet
     {
-        [Parameter()]
+        [Parameter]
         public PortWiseWS.AccountType AccountType { get; set; } = AccountType.PolicyService;
 
         protected override void ProcessRecord()

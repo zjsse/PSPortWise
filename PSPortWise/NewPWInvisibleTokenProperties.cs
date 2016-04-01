@@ -6,26 +6,26 @@ namespace PSPortWise
     [Cmdlet(VerbsCommon.New, "PWInvisibleTokenProperties")]
     public class NewPWInvisibleTokenProperties : PSCmdlet
     {
-        [Parameter()]
+        [Parameter]
         public bool Enabled { get; set; } = true;
-        [Parameter()]
-        public bool ActivateBrowserNextLogon = false;
-        [Parameter()]
+        [Parameter]
+        public bool ActivateBrowserNextLogon;
+        [Parameter]
         public bool GeneratePassword { get; set; } = false;
-        [Parameter()]
+        [Parameter]
         public string Password { get; set; } = null;
-        [Parameter()]
+        [Parameter]
         public bool PasswordNeverExpires { get; set; } = false;
-        [Parameter()]
+        [Parameter]
         public bool UseDirectoryPassword { get; set; } = false;
-        [Parameter()]
+        [Parameter]
         public bool UserCannotChangePassword { get; set; } = false;
-        [Parameter()]
+        [Parameter]
         public bool UserMustChangePassword { get; set; } = false;
 
         protected override void ProcessRecord()
         {
-            WriteObject(new InvisibleTokenProperties()
+            WriteObject(new InvisibleTokenProperties
             {
                 enabled = Enabled,
                 activateBrowserNextLogon = ActivateBrowserNextLogon,

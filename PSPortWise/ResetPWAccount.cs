@@ -7,7 +7,7 @@ namespace PSPortWise
     [Cmdlet(VerbsCommon.Reset, "PWAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     public class ResetPWAccount : PWUAccountCmdlet
     {
-        [Parameter()]
+        [Parameter]
         public PortWiseWS.AccountType AccountType { get; set; } = AccountType.PolicyService;
 
         protected override void ProcessRecord()

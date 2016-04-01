@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Management.Automation;
 using PortWiseWS;
 
@@ -48,7 +47,7 @@ namespace PSPortWise
 
         protected override void ProcessRecord()
         {
-            PWAccount pwAccount = new PWAccount();
+            var pwAccount = new PWAccount();
             pwAccount.UserName = UserName;
             pwAccount.DisplayName = DisplayName;
             // Set defaults

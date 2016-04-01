@@ -1,11 +1,12 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using PortWiseWS;
 
 namespace PSPortWise
 {
     public static class UserSessionState
     {
-        public static string PolicyServiceUrl { get; set; }
+        public static Uri PolicyServiceUrl { get; set; }
         public static Subject AuthenticatedSubject { get; set; }
         public static UserAccountService UserAccountService { get; set; }
         public static Encoding Encoding { get; set; } = Encoding.GetEncoding("iso-8859-1");

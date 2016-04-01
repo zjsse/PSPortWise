@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Management.Automation;
 using PortWiseWS;
 
@@ -12,7 +8,7 @@ namespace PSPortWise
     public class ConnectPWPolicyService : PSCmdlet
     {
         [Parameter(Mandatory = true, Position = 0)]
-        public string Url { get; set; }
+        public Uri Url { get; set; }
 
         [Parameter(Mandatory = true, Position = 1)]
         public int PortWisePasswordId { get; set; }
@@ -23,15 +19,15 @@ namespace PSPortWise
         protected override void BeginProcessing()
         {
             base.BeginProcessing();
-            AuthenticateService authenticationService = new AuthenticateService(Url);
-            Subject subject = new Subject()
+            var authenticationService = new AuthenticateService(Url.OriginalString);
+            var subject = new Subject
             {
-                credentials = new MapItem[2] {
-                    new MapItem() {
+                credentials = new MapItem[] {
+                    new MapItem {
                         key = "username",
                         value = UserSessionState.Encoding.GetBytes(Credential.UserName)
                     },
-                    new MapItem() {
+                    new MapItem {
                         key = "password",
                         value = UserSessionState.Encoding.GetBytes(Credential.GetNetworkCredential().Password)
                     }
@@ -39,7 +35,7 @@ namespace PSPortWise
             };
             UserSessionState.AuthenticatedSubject = authenticationService.authenticate(subject, PortWisePasswordId);
             UserSessionState.PolicyServiceUrl = Url;
-            UserSessionState.UserAccountService = new UserAccountService(Url);
+            UserSessionState.UserAccountService = new UserAccountService(Url.OriginalString);
         }
     }
 }

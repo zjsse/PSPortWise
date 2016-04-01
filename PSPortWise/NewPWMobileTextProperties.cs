@@ -6,24 +6,24 @@ namespace PSPortWise
     [Cmdlet(VerbsCommon.New, "PWMobileTextProperties")]
     public class NewPWMobileTextProperties : PSCmdlet
     {
-        [Parameter()]
+        [Parameter]
         public bool Enabled { get; set; } = true;
-        [Parameter()]
+        [Parameter]
         public bool GeneratePassword { get; set; } = false;
-        [Parameter()]
+        [Parameter]
         public string Password { get; set; } = null;
-        [Parameter()]
+        [Parameter]
         public bool PasswordNeverExpires { get; set; } = false;
-        [Parameter()]
+        [Parameter]
         public bool UseDirectoryPassword { get; set; } = false;
-        [Parameter()]
+        [Parameter]
         public bool UserCannotChangePassword { get; set; } = false;
-        [Parameter()]
+        [Parameter]
         public bool UserMustChangePassword { get; set; } = false;
 
         protected override void ProcessRecord()
         {
-            WriteObject(new MobileTextProperties()
+            WriteObject(new MobileTextProperties
             {
                 enabled = Enabled,
                 generatePwd = GeneratePassword,

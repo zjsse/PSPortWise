@@ -7,7 +7,7 @@ namespace PSPortWise
     [Cmdlet(VerbsCommon.Unlock, "PWAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     public class UnlockPWAccount : PWUAccountCmdlet
     {
-        [Parameter()]
+        [Parameter]
         public PortWiseWS.AccountType AccountType { get; set; } = AccountType.PolicyService;
 
         protected override void ProcessRecord()

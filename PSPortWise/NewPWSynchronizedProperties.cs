@@ -6,26 +6,26 @@ namespace PSPortWise
     [Cmdlet(VerbsCommon.New, "PWSynchronizedProperties")]
     public class NewPWSynchronizedProperties : PSCmdlet
     {
-        [Parameter()]
+        [Parameter]
         public bool Enabled { get; set; } = true;
-        [Parameter()]
+        [Parameter]
         public bool GeneratePin { get; set; } = false;
-        [Parameter()]
+        [Parameter]
         public bool GenerateSeed { get; set; } = false;
-        [Parameter()]
+        [Parameter]
         public string Pin { get; set; } = null;
-        [Parameter()]
+        [Parameter]
         public bool PinNeverExpires { get; set; } = false;
-        [Parameter()]
+        [Parameter]
         public int SeedingMethod { get; set; } = 0;
-        [Parameter()]
+        [Parameter]
         public bool UserCannotChangePin { get; set; } = false;
-        [Parameter()]
+        [Parameter]
         public bool UserMustChangePin { get; set; } = false;
 
         protected override void ProcessRecord()
         {
-            WriteObject(new SynchronizedProperties()
+            WriteObject(new SynchronizedProperties
             {
                 enabled = Enabled,
                 generatePin = GeneratePin,

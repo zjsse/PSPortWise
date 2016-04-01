@@ -46,7 +46,7 @@ namespace PSPortWise
                 {
                     for (int i = 0; i < Keys.Length; i++)
                     {
-                        result.Add(new MapItem()
+                        result.Add(new MapItem
                         {
                             key = Keys[i],
                             value = UserSessionState.Encoding.GetBytes(Values[i])
@@ -58,7 +58,7 @@ namespace PSPortWise
             {
                 foreach (DictionaryEntry entry in Hashtable)
                 {
-                    result.Add(new MapItem()
+                    result.Add(new MapItem
                     {
                         key = entry.Key.ToString(),
                         value = UserSessionState.Encoding.GetBytes(entry.Value.ToString())
