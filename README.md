@@ -4,7 +4,7 @@ PSPortWise
 
 What is PSPortWise?
 ---
-PSPortWise is a (very) thin wrapper around PortWise XPI (specifically the User Account Web Service). It is tested on PortWise XPI release 4.12 and PowerShell 5.0. 
+PSPortWise is PowerShell module for managing users in PortWise using the PortWise XPI (specifically the User Account Web Service). It is tested on PortWise XPI release 4.12 and PowerShell 5.0. 
 
 Prerequisites
 ---
